@@ -1,0 +1,77 @@
+﻿body {
+}
+thead > tr > th {
+    color: #102a83 !important;
+    background-color: white;
+    font-weight: bold !important;
+}
+
+table.dataTable.display tbody td {
+    border: none;
+    padding: 3px;
+}
+
+#example_filter {
+    margin-bottom: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 0.5em;
+}
+
+.table thead tr th {
+    padding: 20px 3px;
+}
+
+div#example_info {
+    padding-left: 10px;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+table#example {
+    box-shadow: 0 0 4px 0 #ccc;
+    padding: 0px;
+}
+
+.table > :not(caption) > * > * {
+    border: none;
+    margin-top: -25px;
+}
+
+.dataTables_filter {
+    display: none;
+}
+
+.dataTables_length {
+    display: none;
+}
+
+th.sorting.sorting_asc {
+    font-family: system-ui;
+}
+
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: currentColor;
+    text-align: center;
+    padding: 8px 0px;
+}
+
+.table > tbody {
+    vertical-align: inherit;
+    text-align: center;
+}
+
+.tr {
+    margin-left: 23px;
+}
+
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: currentColor;
+    text-align: center;
+    padding: 10px 0px 10px 18px;
+}

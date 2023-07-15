@@ -1,0 +1,344 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Default/MasterPage.cshtml";
+}
+ <body>
+        <div class="page-wrapper">
+            @*=========================================================================Page Header========================================================================*@
+            <div class="container">
+                <div class="tec_row ">
+                    <div class="col-sm-12 ">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 Atten mt-2">
+                                <h1 class=" mb-0">Attendance Overview</h1>
+                            </div>
+                            <div class=" col-sm-6 tec_text-end mb-0 mt-2">
+                                <h2>Rajesh Patel</h2>
+                                <p class="mb-2">Sr.Project Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         <hr />
+            @*=======================================================================Horizontal Clendar==================================================================*@
+            <div class="container-fluid timeline-container aa">
+                <div class="row">
+                    <div class="col-sm-1 d-none d-sm-block position-relative pe-0 ps-2">
+                        <div class="row">
+                            <div class="col-3 prev-btn pe-2">
+                                <span class="fa fa-angle-left"></span>
+                            </div>
+                            <div class="col-9 col-sm-9 col-lg-9 timeline-item-Month" style="border-radius: 7px;">
+                                <select id="month-select" onchange="changeMonth();" style="border-radius: 7px; color:white; background-color: #349BFF; border:0px; font-size:18px;" class="col-sm ps-4 ">
+                                    <option value="0">Jan</option>
+                                    <option value="1">Feb</option>
+                                    <option value="2">Mar</option>
+                                    <option value="3">Apr</option>
+                                    <option value="4">May</option>
+                                    <option value="5">Jun</option>
+                                    <option value="6">Jul</option>
+                                    <option value="7">Aug</option>
+                                    <option value="8">Sep</option>
+                                    <option value="9">Oct</option>
+                                    <option value="10">Nov</option>
+                                    <option value="11">Dec</option>
+                                </select>
+                                <span class="d-block ps-4" id="current-year" style="color:white;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-10 pe-0 ps-5">
+                        <div>
+                            <div class="row timeline-list ps-2" id="timeline-list"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 d-none d-sm-block ps-5">
+                        <div class="row">
+                            <div class="col-12 next-btn">
+                                <span class="fa fa-angle-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*=========================================================================Screen Contant=====================================================================*@
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    <div class="col-sm-3 pt-10">
+                        <span class="MeterChartHeading mb-2 ms-4">Current Month's Worked Hours</span>
+                        <div class="col-sm-12" id="MeterparentDiv"></div>
+                        <div class="col-sm-12 text-center col-sm-4" >
+                                @*<p class="RadialChartHeading mb-0">Jun 2023</p>*@
+                                <p class="RadialChartHeading_Type_leave Approve">Type of leave taken</p>
+                                <div class="col-sm-4" id="RadialparentDiv">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 card mt-3 mb-0">
+                        <div class="mb-10">
+                            <span style="color: #868484; font-size:20px;">Yesterday</span>
+                            <span class="ms-2" id="datetime">01/06/2023</span>
+                            <span class="offset-2" id="totaltime">Total Time</span>
+                            <span class="ms-0" id="totaltimehour">1:24:48 h</span>
+                        </div>
+                            <div class="row clock-body mb-3 card_Employee">
+                                <div class="col-sm-4">
+                                    <p class="card-title mb-0 fs-15">Clock in</p>
+                                    <p class="card-text fs-15">11:30</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="card-title mb-0 fs-15">Clock out</p>
+                                    <p class="card-text fs-15">17:30</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="card-title mb-0 fs-15">Total</p>
+                                    <p class="card-text fs-15">0:05:36 h</p>
+                                </div>
+                            </div>
+                            <div class="row clock-body mt-2 card_Employee">
+                                <div class="col-sm-4">
+                                    <p class="card-title mb-0 fs-15">Clock in</p>
+                                    <p class="card-text fs-15">11:30</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="card-title mb-0 fs-15">Clock out</p>
+                                    <p class="card-text fs-15">17:30</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="card-title mb-0 fs-15">Total</p>
+                                    <p class="card-text fs-15">0:05:36 h</p>
+                                </div>
+                            </div>
+                            <div class="card mt-2 mb-0">
+                                <p style="color: #868484;" class="mb-2 fs-20">Leave</p>
+                                <div class="row clock-body card_Employee">
+                                        <ul class="table-list col-sm-8 borderless">
+                                            <li>
+                                                <span data-label=""></span>
+                                                <span data-label="Total" class="title">Total</span>
+                                                <span data-label="Awarded" class="title">Awarded</span>
+                                                <span data-label="Avalied" class="title">Avalied</span>
+                                                <span data-label="Balance" class="title">Balance</span>
+                                            </li>
+                                            <li class="text-center">
+                                                <span data-label="Total" >EL</span>
+                                                <span data-label="Total" class="col-sm-3 text">2</span>
+                                                <span data-label="Awarded" class="col-sm-3 me-2 text">3</span>
+                                                <span data-label="Avalied" class="col-sm-3 ps-2 text">4</span>
+                                                <span data-label="Balance" class="col-sm-3 ps-2 text">4</span>
+                                            </li>
+                                            <li class="text-center">
+                                                <span data-label="Total">SL</span>
+                                                <span data-label="Total" class="col-sm-3 text">2</span>
+                                                <span data-label="Awarded" class="col-sm-3 me-2 text">2</span>
+                                                <span data-label="Avalied" class="col-sm-3 ps-2 text">2</span>
+                                                <span data-label="Balance" class="col-sm-3 ps-2 text">3</span>
+                                            </li>
+                                        </ul>
+                                        <div class="col-sm-4">
+                                            <button type="button" class="btn btn-primary btn-sm mt-4"><span class="LR">Leave Request</span></button>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-sm-4 pt-10">
+                        <b class="MeterChartHeading">Approval Status</b>
+                        <div class="tec_row scrl mt-2">
+                            <div class="leavecard"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row js-center justify-content-around mt-2">
+                    <div class="col-sm-2 card mb-0">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card" style="min-height:315px;">
+                                    <div class="card-body card_Employee">
+                                        <p class="text-center head-cus title">
+                                            Attendance Summary
+                                            @*<svg height="1em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" /></svg>*@
+                                        </p>
+                                        @*<h6 class="card-subtitle mb-2 text-muted text-center">175</h6>*@
+                                        <ul class="mt-3">
+                                            <li class="d-flex justify-content-between"><p class="car-titl title">Working Days</p><p class="card-text fs-15">24</p></li>
+                                            <li class="d-flex justify-content-between"><p class="car-titl title">Total Leaves</p><p class="card-text fs-15">2</p></li>
+                                            <li class="d-flex justify-content-between"><p class="car-titl title">Touring</p><p class="card-text fs-15">0</p></li>
+                                            <li class="d-flex justify-content-between"><p class="car-titl title">Holidays</p><p class="card-text fs-15">4</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 RadialChart ">
+                        <div id="StackparentDiv" class="col-sm-12 card_Employee"></div>
+                    </div>
+
+                </div>
+             </div>
+         </div>
+</body>
+    @*============================================================================Calendar Script====================================================================*@
+    <script>
+        $(document).ready(function () {
+            // Timeline date picker slider scroller
+            var move = "255px";
+            var activeLeftPosition = $("div.active").val() !== undefined
+                ? (activeLeftPosition = $("div.active").position().left)
+                : (activeLeftPosition = 0);
+            var activeWidth = $("div.active").width();
+            var listWidth = $(".timeline-list").width();
+            var center = activeLeftPosition + activeWidth / 2 - listWidth / 2;
+
+            // on page load, center active div
+            $(".timeline-list").animate({ scrollLeft: "+=" + center }, "slow");
+
+            $("div.active")
+                .next("div.timeline-item")
+                .css("border-left-width", "0");
+
+            $(".prev-btn").click(function () {
+                $(".timeline-list").animate({ scrollLeft: "-=" + move });
+            });
+
+            $(".next-btn").click(function () {
+                $(".timeline-list").animate({ scrollLeft: "+=" + move });
+            });
+       MeterChart(); RadialChart(); Attendencecard(); StackkChart();
+        });
+
+    </script>
+    <script>
+        function changeMonth() {
+            // Get the selected month from the dropdown
+            const monthSelect = document.getElementById('month-select');
+            const selectedMonth = parseInt(monthSelect.value);
+
+            // Get the number of days in the selected month
+            const daysInMonth = new Date(2023, selectedMonth + 1, 0).getDate();
+
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+            const currentDay = currentDate.getDate();
+            // Clear the existing timeline items
+            const timelineList = document.getElementById('timeline-list');
+            timelineList.innerHTML = '';
+
+            // Generate new timeline items for each day in the selected month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateObj = new Date(2023, selectedMonth, day);
+                const options = { weekday: 'short' };
+                const dayStr = dateObj.toLocaleDateString('en-US', options);
+
+                const timelineItem = document.createElement('div');
+                timelineItem.classList.add('col-3', 'col-sm-2', 'col-lg-1', 'timeline-item');
+
+                const timelineDate = document.createElement('a');
+                timelineDate.href = '#';
+                timelineDate.classList.add('timeline-date');
+
+                const dayElement = document.createElement('span');
+                dayElement.classList.add('d-block');
+                dayElement.innerHTML = `<strong>${dayStr}</strong>`;
+
+                const dateElement = document.createElement('span');
+                dateElement.classList.add('d-block');
+                dateElement.textContent = day;
+
+                timelineDate.appendChild(dayElement);
+                timelineDate.appendChild(dateElement);
+                timelineItem.appendChild(timelineDate);
+                timelineList.appendChild(timelineItem);
+
+                if (selectedMonth === currentMonth && day === currentDay) {
+                    timelineItem.classList.add('active');
+                }
+            }
+        }
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        console.log(currentYear);
+        $(document).ready(function () {
+            // Set the current year
+            const currentYear = new Date().getFullYear();
+            document.getElementById('current-year').textContent = currentYear;
+            const currentMonth = new Date().getMonth();
+            $('#month-select').val(currentMonth);
+            changeMonth();
+
+            // Scroll the timeline to show the active date
+            const activeLeftPosition = $("div.active").position().left;
+            const activeWidth = $("div.active").width();
+            const listWidth = $(".timeline-list").width();
+            const center = activeLeftPosition + activeWidth / 2 - listWidth / 2;
+            $(".timeline-list").animate({ scrollLeft: "+=" + center }, "slow");
+        });
+    </script>
+
+
+    @*=============================================================================chartFunction===================================================================*@
+
+
+    <!--Meter Chart HRMS-->
+    <script>
+        var presentday, totalWorkingDays;
+        function MeterChart() {
+            var JSONdata = '{"data":[{"value":"50","total":"100"}]}';
+            var viewData = JSON.parse(JSONdata).data;
+            for (var i = 0; i < viewData.length; i++) {
+                presentday = viewData[i].value;
+                totalWorkingDays = viewData[i].total;
+                //arry.push({ ou_long_name, device_name, ip_address, param_varchar00, passwordlastset });
+            }
+            const result = Math.round((presentday / totalWorkingDays) * 100);
+            meterChart("MeterparentDiv", "childMeter", result, "250","250");
+        };
+    </script>
+
+    <!--Radial Chart HRMS-->
+    <script>
+        var arry = [];
+        var working, EL, SL, touring, wfh, unpaid;
+        function RadialChart() {
+            arry = []
+            var JSONdata = '{"data":[{"working":"20","EL":"2","SL":"1","touring":"2","wfh":"1","unpaid":"0"}]}';
+            var viewData = JSON.parse(JSONdata).data;
+            for (var i = 0; i < viewData.length; i++) {
+                working = viewData[i].working;
+                EL = viewData[i].EL;
+                SL = viewData[i].SL;
+                touring = viewData[i].touring;
+                wfh = viewData[i].wfh;
+                unpaid = viewData[i].unpaid;
+                arry.push({ working, EL, SL, touring, wfh, unpaid });
+            }
+            radialChart("RadialparentDiv", "childRadialr", arry, 'bottom',"250","250");
+        };
+    </script>
+
+    <!--stack Chart HRMS-->
+    <script>
+        var arry = [];
+        var working, EL, SL, touring, wfh, unpaid, holiday, date;
+        function StackkChart() {
+            arry = []
+            var JSONdata = `{"data":[{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"01/04/2023"},
+{"working":"7.30","EL":"1.30","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"02/04/2023"},{"working":"6:30","EL":"0","SL":"02:30","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"03/04/2023"},{"working":"00","EL":"0","SL":"0","touring":"8.30","wfh":"0","unpaid":"0","holiday":"0","date":"04/04/2023"},{"working":"6.30","EL":"0","SL":"0","touring":"2.30","wfh":"0","unpaid":"0","holiday":"0","date":"05/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"8.30","holiday":"0","date":"06/04/2023"},{"working":"6.00","EL":"1.00","SL":"1.00","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"07/04/2023"},{"working":"00","EL":"0","SL":"8.30","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"08/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"09/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"8.30","date":"10/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"11/04/2023"},{"working":"0","EL":"8.30","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"12/04/2023"},{"working":"0","EL":"0","SL":"8.30","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"13/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"8.30","wfh":"0","unpaid":"0","holiday":"0","date":"14/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"8.30","unpaid":"0","holiday":"0","date":"15/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"8.30","holiday":"0","date":"16/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"8.30","date":"17/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"18/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"19/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"8.30","wfh":"0","unpaid":"0","holiday":"0","date":"20/04/2023"},{"working":"0","EL":"0","SL":"8.30","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"21/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"22/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"23/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"24/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"25/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"26/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"27/04/2023"},{"working":"0","EL":"8.30","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"28/04/2023"},{"working":"0","EL":"0","SL":"4.30","touring":"4.30","wfh":"0","unpaid":"0","holiday":"0","date":"29/04/2023"},{"working":"8.30","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"0","date":"30/04/2023"},{"working":"0","EL":"0","SL":"0","touring":"0","wfh":"0","unpaid":"0","holiday":"8.30","date":"31/04/2023"}]}`;
+            var viewData = JSON.parse(JSONdata).data;
+            for (var i = 0; i < viewData.length; i++) {
+                working = viewData[i].working;
+                EL = viewData[i].EL;
+                SL = viewData[i].SL;
+                touring = viewData[i].touring;
+                wfh = viewData[i].wfh;
+                unpaid = viewData[i].unpaid;
+                holiday = viewData[i].holiday;
+                date = viewData[i].date;
+                arry.push({ working, EL, SL, touring, wfh, unpaid, holiday, date });
+            }
+            stackChart("StackparentDiv", "childStack", arry,"300","100%");
+        };
+    </script>
+    

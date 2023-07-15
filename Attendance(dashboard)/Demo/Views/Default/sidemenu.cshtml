@@ -1,0 +1,29 @@
+﻿
+<div id="sideMenu">
+    <button id="toggleButton"></button>
+    <ul id="menuItems">
+        <!-- Menu items will be dynamically added here -->
+    </ul>
+</div>
+<script>
+     const menuData = [
+        {label: "Attendance", url: "@Url.Action("Index","Default")", submenus: [/*{label: "Submenu 1", url: "#" }, {label: "Submenu 2", url: "/submenu2" }*/] },
+        {label: "Salary", url: "@Url.Action("one","Default")", submenus: [/*{label: "Submenu 1", url: "#" }, {label: "Submenu 2", url: "/submenu2" }*/] },
+    ];
+</script>
+
+<script>
+    var dynamicIcons = [
+        { label: 'Attendance', iconClass: 'fa fa-calendar' },
+        { label: 'Salary', iconClass: 'fas fa-database' }
+        //{ label: 'CreateException', iconClass: 'fa-solid fa-magnifying-glass' },
+        //{ label: 'DashBoard', iconClass: 'fa fa-bar-chart' }
+        //{ label: 'sidemenu 1', iconClass: 'fa fa-calendar' },
+        //{ label: 'Menu 1', iconClass: 'fa-solid fa-table-cells-large' },
+        //{ label: 'Menu 2', iconClass: 'fa-solid fa-table-cells-large' },
+        //{ label: 'submenu 1', iconClass: 'fa-solid fa-credit-card' },
+        //{ label: 'submenu 2', iconClass: 'fa-solid fa-credit-card' },
+        //{ label: 'Panel', iconClass: 'fa-solid fa-server' },
+        //{ label: 'Panel3', iconClass: 'fa fa-calendar' }
+    ];
+</script>

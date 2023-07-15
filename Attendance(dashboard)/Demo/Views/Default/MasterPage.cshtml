@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NOCDesk</title>
+    <link href="~/css/all.min.css" rel="stylesheet" />
+    <link href="http://192.168.100.171:50/sidemenu/Sidemenu.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.png">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/DataTable/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/Bootstrap_class.css" />
+    <link rel="stylesheet" href="~/css/AdvanceSearch.css" />
+    @*icon link*@
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+    <link href="~/DTPicker/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/userdashboard.css" rel="stylesheet" />
+    <script src="~/js/jquery-3.6.0.js"></script>
+    
+</head>
+<body>
+
+    <div class="container-fluid">
+        @*@Html.Partial("header")*@
+        @Html.Partial("sidemenu")
+        @RenderBody()
+    </div>
+    <script src="~/js/DataTable/jquery.dataTables.min.js"></script>
+    <script src="~/js/DataTable/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/DataTable/dataTables.buttons.min.js"></script>
+    <script src="~/js/DataTable/buttons.bootstrap5.min.js"></script>
+    <script src="~/js/DataTable/jszip.min.js"></script>
+    <script src="~/js/DataTable/pdfmake.min.js"></script>
+    <script src="~/js/DataTable/vfs_fonts.js"></script>
+    <script src="~/js/DataTable/buttons.html5.min.js"></script>
+    <script src="~/js/DataTable/buttons.print.min.js"></script>
+    <script src="~/js/DataTable/buttons.colVis.min.js"></script>
+    <script src="~/js/moment.min.js"></script>
+    <script src="~/js/DataTable/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/js/month.js"></script>
+    <script src="~/DTPicker/jquery.datetimepicker.full.min.js"></script>
+    <script src="~/js/datepicker.all.js"></script>
+    <script src="~/js/jquery.slimscroll.min.js"></script>
+    <script src="~/js/TectonaValidate.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/jquery.validate.js"></script>
+    <script src="~/js/ChartFunction.js.js"></script>
+    <script src="~/js/card.js"></script>
+    <script src="~/js/apexcharts.js"></script>
+    <script src="http://192.168.100.171:50/Sidemenu/sidemenu.js"></script>
+    @*<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>*@
+
+    <script>
+        //$('.calender').datePicker();
+
+        //year picker
+        $('.cal_year').datePicker({
+            format: 'YYYY'
+        });
+
+        $('.datepicker').datetimepicker({
+            timepicker: false,
+            format: "d/m/Y",
+        });
+    </script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
